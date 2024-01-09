@@ -1,4 +1,5 @@
-import BoardGame.Piece;
+package program;
+
 import Chess.ChessPiece;
 
 public class UI {

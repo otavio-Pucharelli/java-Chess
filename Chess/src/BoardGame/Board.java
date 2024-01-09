@@ -1,8 +1,5 @@
 package BoardGame;
 
-import BoardGame.Piece;
-import BoardGame.BoardExecpetion;
-
 public class Board {
     private int rows;
     private int columns;
@@ -61,5 +58,6 @@ public class Board {
         }
         return piece(position) != null;
     }
+
 
 }
