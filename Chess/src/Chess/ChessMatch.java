@@ -14,7 +14,8 @@ public class ChessMatch {
     private int turn;
     private ColorEnum currentPlayer;
     private Board board;
-    private boolean check;  //false
+    private boolean check; //false
+    private static boolean checkMate; //false
 
     private List<Piece> piecesOnTheBoard = new ArrayList<>();
     private List<Piece> capturedPieces = new ArrayList<>();
@@ -49,6 +50,10 @@ public class ChessMatch {
     public boolean getCheck() {
         return check;
     }
+
+    public static boolean getCheckMate() {
+        return checkMate;
+    }
 //-----------------------------------------------//    
     
 
@@ -76,7 +81,13 @@ private void placeNewPiece(char column, int row, ChessPiece piece) {
         }
 
         check = (testCheck(opponent(currentPlayer))) ? true : false;
-        nextTurn();
+
+        if (testCheckMate(opponent(currentPlayer))) {
+            checkMate = true;
+        }
+        else {
+            nextTurn();
+        }
         
         return (ChessPiece)capturedPiece;
     } 
@@ -155,5 +166,30 @@ private void placeNewPiece(char column, int row, ChessPiece piece) {
             }
         }
         return false;
+    }
+
+    private boolean testCheckMate(ColorEnum color) {
+        if (!testCheck(color)) {
+            return false;
+        }
+        List<Piece> list = piecesOnTheBoard.stream().filter(x -> ((ChessPiece)x).getColor() == color).collect(Collectors.toList());
+        for (Piece p : list) {
+            boolean[][] mat = p.possibleMoves();
+            for (int i = 0; i < board.getRows(); i++) {
+                for (int j = 0; j < board.getColumns(); j++) {
+                    if (mat[i][j]) {
+                        Position source = ((ChessPiece)p).getChessPosition().toPosition();
+                        Position target = new Position(i, j);
+                        Piece capturedPiece = makeMove(source, target);
+                        boolean testCheck = testCheck(color);
+                        undoMove(source, target, capturedPiece);
+                        if (!testCheck) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
     }
 }
