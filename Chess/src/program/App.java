@@ -17,7 +17,7 @@ public class App {
         ChessMatch chessMatch = new ChessMatch();
         List<ChessPiece> captured = new ArrayList<>();
 
-        while (!ChessMatch.getCheckMate()) {
+        while (chessMatch.getCheckMate()) {
             
             try{
                 UI.ClearScreen();
