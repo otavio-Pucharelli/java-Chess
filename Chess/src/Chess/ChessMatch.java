@@ -51,7 +51,7 @@ public class ChessMatch {
         return check;
     }
 
-    public static boolean getCheckMate() {
+    public boolean getCheckMate() {
         return checkMate;
     }
 //-----------------------------------------------//    
