@@ -101,12 +101,11 @@ public class UI {
             System.out.print("-" + ANSI_RESET);
         } else {
             if ( piece.getColor() == ColorEnum.WHITE ) {
-                System.out.println(ANSI_WHITE + piece + ANSI_RESET);
+                System.out.print(ANSI_WHITE + piece + ANSI_RESET);
             }
             else {
-                System.out.println(ANSI_YELLOW + piece + ANSI_RESET);
+                System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
             }
-            System.out.print(piece);
         }
         System.out.print(" ");
     }
