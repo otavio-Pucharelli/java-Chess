@@ -15,11 +15,6 @@ public class Pawn extends ChessPiece {
         return "P";
     }
 
-    private boolean canMove(int row, int column) {
-        ChessPiece p = (ChessPiece) getBoard().piece(row, column);
-        return p == null || p.getColor() != getColor();
-    }
-
     @Override
     public boolean[][] possibleMoves() {
         boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
@@ -63,7 +58,7 @@ public class Pawn extends ChessPiece {
                 mat[p.getRow()][p.getColumn()] = true;
             }
         }
-        
+
         return mat;
     }    
 }
