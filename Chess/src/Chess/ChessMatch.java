@@ -93,7 +93,8 @@ private void placeNewPiece(char column, int row, ChessPiece piece) {
     } 
 
     private Piece makeMove(Position source, Position target) {
-        Piece p = board.raemovePiece(source);
+        ChessPiece p = (ChessPiece)board.raemovePiece(source);
+        p.increaseMoveCount();
         Piece capturedPiece = board.raemovePiece(target);
         if (capturedPiece != null) {
             piecesOnTheBoard.remove(capturedPiece);
@@ -104,7 +105,7 @@ private void placeNewPiece(char column, int row, ChessPiece piece) {
     }
 
     private void undoMove(Position source, Position target, Piece capturedPiece) {
-        Piece p = board.raemovePiece(target);
+        ChessPiece p = (ChessPiece)board.raemovePiece(target);
         board.placePiece(p, source);
         if (capturedPiece != null) {
             board.placePiece(capturedPiece, target);
