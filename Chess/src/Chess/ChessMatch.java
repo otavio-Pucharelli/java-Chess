@@ -87,14 +87,14 @@ private void placeNewPiece(char column, int row, ChessPiece piece) {
         placeNewPiece('f', 1, new Knight(board, ColorEnum.WHITE));
         placeNewPiece('g', 1, new Bishop(board, ColorEnum.WHITE));
         placeNewPiece('h', 1, new Rook(board, ColorEnum.WHITE));
-        placeNewPiece('a', 2, new Pawn(board, ColorEnum.WHITE));
-        placeNewPiece('b', 2, new Pawn(board, ColorEnum.WHITE));
-        placeNewPiece('c', 2, new Pawn(board, ColorEnum.WHITE));
-        placeNewPiece('d', 2, new Pawn(board, ColorEnum.WHITE));
-        placeNewPiece('e', 2, new Pawn(board, ColorEnum.WHITE));
-        placeNewPiece('f', 2, new Pawn(board, ColorEnum.WHITE));
-        placeNewPiece('g', 2, new Pawn(board, ColorEnum.WHITE));
-        placeNewPiece('h', 2, new Pawn(board, ColorEnum.WHITE));
+        placeNewPiece('a', 2, new Pawn(board, ColorEnum.WHITE, this));
+        placeNewPiece('b', 2, new Pawn(board, ColorEnum.WHITE, this));
+        placeNewPiece('c', 2, new Pawn(board, ColorEnum.WHITE, this));
+        placeNewPiece('d', 2, new Pawn(board, ColorEnum.WHITE, this));
+        placeNewPiece('e', 2, new Pawn(board, ColorEnum.WHITE, this));
+        placeNewPiece('f', 2, new Pawn(board, ColorEnum.WHITE, this));
+        placeNewPiece('g', 2, new Pawn(board, ColorEnum.WHITE, this));
+        placeNewPiece('h', 2, new Pawn(board, ColorEnum.WHITE, this));
 
         placeNewPiece('a', 8, new Rook(board, ColorEnum.BLACK));
         placeNewPiece('b', 8, new Bishop(board, ColorEnum.BLACK));
@@ -104,14 +104,14 @@ private void placeNewPiece(char column, int row, ChessPiece piece) {
         placeNewPiece('f', 8, new Knight(board, ColorEnum.BLACK));
         placeNewPiece('g', 8, new Bishop(board, ColorEnum.BLACK));
         placeNewPiece('h', 8, new Rook(board, ColorEnum.BLACK));
-        placeNewPiece('a', 7, new Pawn(board, ColorEnum.BLACK));
-        placeNewPiece('b', 7, new Pawn(board, ColorEnum.BLACK));
-        placeNewPiece('c', 7, new Pawn(board, ColorEnum.BLACK));
-        placeNewPiece('d', 7, new Pawn(board, ColorEnum.BLACK));
-        placeNewPiece('e', 7, new Pawn(board, ColorEnum.BLACK));
-        placeNewPiece('f', 7, new Pawn(board, ColorEnum.BLACK));
-        placeNewPiece('g', 7, new Pawn(board, ColorEnum.BLACK));
-        placeNewPiece('h', 7, new Pawn(board, ColorEnum.BLACK));
+        placeNewPiece('a', 7, new Pawn(board, ColorEnum.BLACK, this));
+        placeNewPiece('b', 7, new Pawn(board, ColorEnum.BLACK, this));
+        placeNewPiece('c', 7, new Pawn(board, ColorEnum.BLACK, this));
+        placeNewPiece('d', 7, new Pawn(board, ColorEnum.BLACK, this));
+        placeNewPiece('e', 7, new Pawn(board, ColorEnum.BLACK, this));
+        placeNewPiece('f', 7, new Pawn(board, ColorEnum.BLACK, this));
+        placeNewPiece('g', 7, new Pawn(board, ColorEnum.BLACK, this));
+        placeNewPiece('h', 7, new Pawn(board, ColorEnum.BLACK, this));
     } 
 
     public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
